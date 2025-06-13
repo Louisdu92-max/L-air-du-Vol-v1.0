@@ -521,9 +521,52 @@ body.dark .footer p {
 .upload-section button:hover {
   background-color: #31455a;
 }
+.dropzone {
+  position: relative;
+  border: 2px dashed transparent; /* invisible par défaut */
+  padding: 40px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+  user-select: none;
+  color: #003366; /* texte visible */
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* Input file transparent, couvrant toute la zone */
+.dropzone input[type="file"] {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Quand on survole la zone ou drag over, on affiche une bordure visible */
+.dropzone:hover,
+.dropzone.dragover {
+  border-color: #003366;
+  color: #003366;
+}
+
+/* Texte p légèrement plus clair quand pas actif */
+.dropzone p {
+  margin: 0;
+  pointer-events: none; /* pour que clic passe au input */
+}
 
 #preview-container {
   margin-top: 2rem;
+}
+.upload-instructions {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 5px;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+  font-style: italic;
 }
 
 body.dark .upload-section {

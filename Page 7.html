@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Opérations militaires: créer un article</title>
+  <title>Aviaition civile: créer un article</title>
   <link rel="stylesheet" href="Page 2.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://unpkg.com/mammoth/mammoth.browser.min.js"></script>
@@ -47,8 +47,8 @@
       <li class="has-submenu">
         <a href="#">A propos</a>
         <ul class="sous-menu">
-          <li><a href="Page 5.html">Nous contacter</a></li>
-          <li><a href="page de connexion.html">Conditions générales d'utilisation</a></li>
+          <li><a href="Page 8.html">Nous contacter</a></li>
+          <li><a href="#section1">Conditions générales d'utilisation</a></li>
         </ul>
       </li>
     </ul>
@@ -66,11 +66,33 @@
   </div>
   <main class="main-content">
     <h1>Opérations militaires</h1>
-    <section class="file-upload-section">
-      <h2>Téléversez un document texte</h2>
-      <input type="file" id="fileInput" accept=".docx" />
-      <div id="filePreview" class="file-preview">Aucun document chargé</div>
-    </section>
+<section class="file-upload-section">
+  <h2>Téléversez un document texte</h2>
+  <div id="dropzone" class="dropzone">
+    <input type="file" id="fileInput" accept=".docx" />
+    <p>Glissez-déposez un fichier ici ou cliquez pour sélectionner</p>
+  </div>
+ <p class="upload-instructions" style="font-style: italic;">
+  Taille maximale : 5 Mo.<br><br>
+  Assurez-vous que le document est bien formaté selon les règles suivantes :
+</p>  
+<ul class="upload-instructions" style="font-style: italic;">
+  <li>Un résumé de l'article<br><br></li>
+  <li>Un titre<br><br></li>
+  <li>Des sous-parties<br><br></li>
+  <li>Quelques images illustrant votre article<br><br></li>
+</ul>
+<p class="upload-instructions" style="font-style: italic;">
+  ⚠ Votre article doit contenir uniquement des informations sur l'avation sinon il sera supprimer
+</p>
+  <!-- Zone de dépôt : juste l'input, pas d'arrière-plan -->
+  
+  <!-- Carte d'aperçu, cachée au départ -->
+  <article id="filePreview" class="card" style="display:none; margin-top: 20px;">
+    <div class="card-content"></div>
+  </article>
+</section>
+</section>
   </main>
   <button type="submit" class="btn">Publier l'article</button>
 
@@ -97,14 +119,34 @@
       sidebar.classList.toggle('collapsed');
       body.classList.toggle('menu-collapsed');
     });
- document.getElementById('fileInput').addEventListener('change', function (event) {
-      const file = event.target.files[0];
-      const preview = document.getElementById('filePreview');
+document.getElementById('fileInput').addEventListener('change', function (event) {
+  const file = event.target.files[0];
+  const preview = document.getElementById('filePreview');
+  const contentDiv = preview.querySelector('.card-content');
 
-      if (!file || file.name.split('.').pop().toLowerCase() !== 'docx') {
-        preview.textContent = "Veuillez téléverser un fichier .docx valide.";
-        return;
-      }
+  if (!file || file.name.split('.').pop().toLowerCase() !== 'docx') {
+    preview.style.display = 'block';
+    contentDiv.textContent = "Veuillez téléverser un fichier .docx valide.";
+    return;
+  }
+
+  const reader = new FileReader();
+  reader.onload = function (e) {
+    const arrayBuffer = e.target.result;
+
+    mammoth.convertToHtml({ arrayBuffer: arrayBuffer })
+      .then(function (result) {
+        contentDiv.innerHTML = result.value;
+        preview.style.display = 'block';
+      })
+      .catch(function (err) {
+        contentDiv.textContent = "Erreur lors de l'extraction du contenu.";
+        preview.style.display = 'block';
+        console.error(err);
+      });
+  };
+  reader.readAsArrayBuffer(file);
+});
 
       const reader = new FileReader();
       reader.onload = function (e) {
@@ -120,12 +162,10 @@
           });
       };
       reader.readAsArrayBuffer(file);
-    });
         function checkAuth() {
       const username = document.getElementById('username').value;
       const code = document.getElementById('code').value;
       const errorMsg = document.getElementById('error-msg');
-
       if (username === 'admin' && code === '1234') {
         document.body.classList.remove('locked');
         document.getElementById('auth-modal').style.display = 'none';
@@ -136,7 +176,7 @@
   </script>
 
   <footer class="footer">
-    <div class="footer-content">
+    <div class="footer-content" id="section1">
       <h3>Conditions Générales d’Utilisation</h3>
       <p>En accédant au site <strong>L'Air du vol</strong>, vous acceptez nos conditions générales d'utilisation. Toute reproduction ou diffusion du contenu est interdite sans autorisation.</p>
       <p>&copy; 2025 - L'Air du vol. Tous droits réservés.</p>

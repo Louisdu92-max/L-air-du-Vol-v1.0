@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Grands avions du monde: découvrir nos articles</title>
+  <title>Aviaition civile: découvrir nos articles</title>
   <link rel="stylesheet" href="Page 1.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -19,7 +19,7 @@
   </header>
 
   <!-- Menu latéral vertical -->
-<nav class="sidebar">
+  <nav class="sidebar">
     <ul class="menu">
       <li><a href="Page 1.html">Accueil</a></li>
       <li class="has-submenu">
@@ -46,7 +46,7 @@
       <li class="has-submenu">
         <a href="#">A propos</a>
         <ul class="sous-menu">
-          <li><a href="Page 5.html">Nous contacter</a></li>
+          <li><a href="Page 8.html">Nous contacter</a></li>
           <li><a href="#section1">Conditions générales d'utilisation</a></li>
         </ul>
       </li>
@@ -55,34 +55,19 @@
 
   <!-- Contenu principal -->
   <main class="main-content">
-    <h1>Grands avions du monde</h1>
-    <h2>Nos derniers articles</h2>
-    <section class="grid-articles">
-      <div class="card">
-        <img src="https://www.aerialvisuals.ca/Airframe/Gallery/0/117/0000117609.jpg" alt="Sea Fury">
-        <div class="card-content">
-          <h3>Les Sea Fury de Reno</h3>
-          <p>Description d’un super article.</p>
-          <a href="#" class="btn">Lire plus</a>
-          <div class="article">
-            <small class="date">Publié le DATE_ICI</small>
-            <button class="delete-btn">Supprimer</button>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/Cassutt-wasabi-N26ES-090221-wc.jpg?20090222000221" alt="Formule 1 Reno">
-        <div class="card-content">
-          <h3>Formules 1 de Reno</h3>
-          <p>Description d’un super article.</p>
-          <a href="#" class="btn">Lire plus</a>
-          <div class="article">
-            <small class="date">Publié le DATE_ICI</small>
-            <button class="delete-btn">Supprimer</button>
-          </div>
-        </div>
-      </div>
-    </section>
+<section class="contact-section">
+  <h2>Me contacter</h2>
+  <form id="contactForm">
+    <label for="email">Adresse email :</label>
+    <input type="email" id="email" name="email" placeholder="exemple@gmail.com" value="exemple@gmail.com" required>
+
+    <label for="message">Votre message :</label>
+    <textarea id="message" name="message" rows="6" placeholder="Écrivez votre message ici..." required></textarea>
+
+    <button type="submit" class="btn">Envoyer</button>
+  </form>
+</section>
+ </section>
   </main>
 
   <!-- Script pour le thème et le menu -->
@@ -108,10 +93,16 @@
       sidebar.classList.toggle('collapsed');
       body.classList.toggle('menu-collapsed');
     });
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  alert('Merci pour votre message ! Nous vous contacterons bientôt.');
+  this.reset();
+});
+
   </script>
 
   <footer class="footer">
-    <div class="footer-content"  id="section1">
+    <div class="footer-content" id="section1">
       <h3>Conditions Générales d’Utilisation</h3>
       <p>En accédant au site <strong>L'Air du vol</strong>, vous acceptez nos conditions générales d'utilisation. Toute reproduction ou diffusion du contenu est interdite sans autorisation.</p>
       <p>&copy; 2025 - L'Air du vol. Tous droits réservés.</p>

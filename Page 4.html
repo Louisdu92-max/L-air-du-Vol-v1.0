@@ -2,9 +2,10 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Opérations militaires: découvrir nos articles</title>
+  <title>L'air du vol/ Opérations militaires/ Découvrir nos articles</title>
   <link rel="stylesheet" href="Page 1.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="logo.png" type="image/png">
 </head>
 <body>
 
@@ -19,9 +20,9 @@
   </header>
 
   <!-- Menu latéral vertical -->
-<nav class="sidebar">
+  <nav class="sidebar">
     <ul class="menu">
-      <li><a href="Page 1.html">Accueil</a></li>
+      <li><a href="Index.html">Accueil</a></li>
       <li class="has-submenu">
         <a href="#">Aviation civile</a>
         <ul class="sous-menu">
@@ -47,7 +48,7 @@
         <a href="#">A propos</a>
         <ul class="sous-menu">
           <li><a href="Page 8.html">Nous contacter</a></li>
-          <span><li><a href="#section1">Conditions générales d'utilisation</a></li></span>
+          <li><a href="#section1">Conditions générales d'utilisation</a></li>
         </ul>
       </li>
     </ul>
@@ -55,15 +56,20 @@
 
   <!-- Contenu principal -->
   <main class="main-content">
-    <h1>Opéraitons militaires</h1>
+    <h1>Accueil</h1>
     <h2>Nos derniers articles</h2>
-    <section class="grid-articles">
+    <section id="full-article" class="full-article" style="display: none;"></section>
+<section id="article-grid" class="grid-articles">
       <div class="card">
         <img src="https://www.aerialvisuals.ca/Airframe/Gallery/0/117/0000117609.jpg" alt="Sea Fury">
         <div class="card-content">
           <h3>Les Sea Fury de Reno</h3>
           <p>Description d’un super article.</p>
-          <a href="#" class="btn">Lire plus</a>
+          <a href="#" class="btn read-more"
+          data-title="Les Sea Fury de Reno"
+          data-content="Voici le contenu complet de l’article sur les Sea Fury de Reno.">
+          Lire plus
+          </a>
           <div class="article">
             <small class="date">Publié le DATE_ICI</small>
             <button class="delete-btn">Supprimer</button>
@@ -75,7 +81,171 @@
         <div class="card-content">
           <h3>Formules 1 de Reno</h3>
           <p>Description d’un super article.</p>
-          <a href="#" class="btn">Lire plus</a>
+          <a href="#" class="btn read-more"
+          data-title="Formules 1 de Reno"
+          data-content="Voici le contenu complet de l’article sur les Formules 1 de Reno.">
+          Lire plus
+          </a>
+          <div class="article">
+            <small class="date">Publié le DATE_ICI</small>
+            <button class="delete-btn">Supprimer</button>
+          </div>
+        </div>
+      </div>
+            <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/Cassutt-wasabi-N26ES-090221-wc.jpg?20090222000221" alt="Formule 1 Reno">
+        <div class="card-content">
+          <h3>Formules 1 de Reno</h3>
+          <p>Description d’un super article.</p>
+          <a href="#" class="btn read-more"
+          data-title="Formules 1 de Reno"
+          data-content="Voici le contenu complet de l’article sur les Formules 1 de Reno.">
+          Lire plus
+          </a>
+          <div class="article">
+            <small class="date">Publié le DATE_ICI</small>
+            <button class="delete-btn">Supprimer</button>
+          </div>
+        </div>
+      </div>
+            <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/Cassutt-wasabi-N26ES-090221-wc.jpg?20090222000221" alt="Formule 1 Reno">
+        <div class="card-content">
+          <h3>Formules 1 de Reno</h3>
+          <p>Description d’un super article.</p>
+          <a href="#" class="btn read-more"
+          data-title="Formules 1 de Reno"
+          data-content="Voici le contenu complet de l’article sur les Formules 1 de Reno.">
+          Lire plus
+          </a>
+          <div class="article">
+            <small class="date">Publié le DATE_ICI</small>
+            <button class="delete-btn">Supprimer</button>
+          </div>
+        </div>
+      </div>
+            <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/Cassutt-wasabi-N26ES-090221-wc.jpg?20090222000221" alt="Formule 1 Reno">
+        <div class="card-content">
+          <h3>Formules 1 de Reno</h3>
+          <p>Description d’un super article.</p>
+          <a href="#" class="btn read-more"
+          data-title="Formules 1 de Reno"
+          data-content="Voici le contenu complet de l’article sur les Formules 1 de Reno.">
+          Lire plus
+          </a>
+          <div class="article">
+            <small class="date">Publié le DATE_ICI</small>
+            <button class="delete-btn">Supprimer</button>
+          </div>
+        </div>
+      </div>
+            <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/Cassutt-wasabi-N26ES-090221-wc.jpg?20090222000221" alt="Formule 1 Reno">
+        <div class="card-content">
+          <h3>Formules 1 de Reno</h3>
+          <p>Description d’un super article.</p>
+          <a href="#" class="btn read-more"
+          data-title="Formules 1 de Reno"
+          data-content="Voici le contenu complet de l’article sur les Formules 1 de Reno.">
+          Lire plus
+          </a>
+          <div class="article">
+            <small class="date">Publié le DATE_ICI</small>
+            <button class="delete-btn">Supprimer</button>
+          </div>
+        </div>
+      </div>
+            <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/Cassutt-wasabi-N26ES-090221-wc.jpg?20090222000221" alt="Formule 1 Reno">
+        <div class="card-content">
+          <h3>Formules 1 de Reno</h3>
+          <p>Description d’un super article.</p>
+          <a href="#" class="btn read-more"
+          data-title="Formules 1 de Reno"
+          data-content="Voici le contenu complet de l’article sur les Formules 1 de Reno.">
+          Lire plus
+          </a>
+          <div class="article">
+            <small class="date">Publié le DATE_ICI</small>
+            <button class="delete-btn">Supprimer</button>
+          </div>
+        </div>
+      </div>
+            <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/Cassutt-wasabi-N26ES-090221-wc.jpg?20090222000221" alt="Formule 1 Reno">
+        <div class="card-content">
+          <h3>Formules 1 de Reno</h3>
+          <p>Description d’un super article.</p>
+          <a href="#" class="btn read-more"
+          data-title="Formules 1 de Reno"
+          data-content="Voici le contenu complet de l’article sur les Formules 1 de Reno.">
+          Lire plus
+          </a>
+          <div class="article">
+            <small class="date">Publié le DATE_ICI</small>
+            <button class="delete-btn">Supprimer</button>
+          </div>
+        </div>
+      </div>
+            <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/Cassutt-wasabi-N26ES-090221-wc.jpg?20090222000221" alt="Formule 1 Reno">
+        <div class="card-content">
+          <h3>Formules 1 de Reno</h3>
+          <p>Description d’un super article.</p>
+          <a href="#" class="btn read-more"
+          data-title="Formules 1 de Reno"
+          data-content="Voici le contenu complet de l’article sur les Formules 1 de Reno.">
+          Lire plus
+          </a>
+          <div class="article">
+            <small class="date">Publié le DATE_ICI</small>
+            <button class="delete-btn">Supprimer</button>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/Cassutt-wasabi-N26ES-090221-wc.jpg?20090222000221" alt="Formule 1 Reno">
+        <div class="card-content">
+          <h3>Formules 1 de Reno</h3>
+          <p>Description d’un super article.</p>
+          <a href="#" class="btn read-more"
+          data-title="Formules 1 de Reno"
+          data-content="Voici le contenu complet de l’article sur les Formules 1 de Reno.">
+          Lire plus
+          </a>
+          <div class="article">
+            <small class="date">Publié le DATE_ICI</small>
+            <button class="delete-btn">Supprimer</button>
+          </div>
+        </div>
+      </div>
+            <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/Cassutt-wasabi-N26ES-090221-wc.jpg?20090222000221" alt="Formule 1 Reno">
+        <div class="card-content">
+          <h3>Formules 1 de Reno</h3>
+          <p>Description d’un super article.</p>
+          <a href="#" class="btn read-more"
+          data-title="Formules 1 de Reno"
+          data-content="Voici le contenu complet de l’article sur les Formules 1 de Reno.">
+          Lire plus
+          </a>
+          <div class="article">
+            <small class="date">Publié le DATE_ICI</small>
+            <button class="delete-btn">Supprimer</button>
+          </div>
+        </div>
+      </div>
+            <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/Cassutt-wasabi-N26ES-090221-wc.jpg?20090222000221" alt="Formule 1 Reno">
+        <div class="card-content">
+          <h3>Formules 1 de Reno</h3>
+          <p>Description d’un super article.</p>
+          <a href="#" class="btn read-more"
+          data-title="Formules 1 de Reno"
+          data-content="Voici le contenu complet de l’article sur les Formules 1 de Reno.">
+          Lire plus
+          </a>
           <div class="article">
             <small class="date">Publié le DATE_ICI</small>
             <button class="delete-btn">Supprimer</button>
@@ -108,10 +278,40 @@
       sidebar.classList.toggle('collapsed');
       body.classList.toggle('menu-collapsed');
     });
+      const readMoreButtons = document.querySelectorAll('.read-more');
+  const fullArticle = document.getElementById('full-article');
+  const articleGrid = document.getElementById('article-grid');
+
+  readMoreButtons.forEach(btn => {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      const title = this.dataset.title;
+      const content = this.dataset.content;
+
+      fullArticle.innerHTML = `
+        <div class="card">
+          <div class="card-content">
+            <h2>${title}</h2>
+            <p>${content}</p>
+            <button id="close-article" class="btn">Fermer</button>
+          </div>
+        </div>
+      `;
+
+      fullArticle.style.display = 'block';
+      articleGrid.classList.add('blur');
+      document.getElementById('close-article').addEventListener('click', () => {
+        fullArticle.style.display = 'none';
+        fullArticle.innerHTML = '';
+        articleGrid.classList.remove('blur');
+      });
+    });
+  });
   </script>
 
   <footer class="footer">
-    <div class="footer-content" id="section1">1>
+    <div class="footer-content" id="section1">
       <h3>Conditions Générales d’Utilisation</h3>
       <p>En accédant au site <strong>L'Air du vol</strong>, vous acceptez nos conditions générales d'utilisation. Toute reproduction ou diffusion du contenu est interdite sans autorisation.</p>
       <p>&copy; 2025 - L'Air du vol. Tous droits réservés.</p>

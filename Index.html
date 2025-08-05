@@ -308,7 +308,82 @@
       });
     });
   });
+const chatBtn = document.getElementById('chat-btn');
+const chatModal = document.getElementById('chat-modal');
+const closeChat = document.getElementById('close-chat');
+
+chatBtn.addEventListener('click', () => {
+  chatModal.classList.toggle('visible');
+});
+
+closeChat.addEventListener('click', () => {
+  chatModal.classList.remove('visible');
+});
+
+  // Fonction pour afficher un message dans le chat
+  function addMessage(text, fromUser = false) {
+    const msg = document.createElement('div');
+    msg.textContent = text;
+    msg.style.margin = '5px 0';
+    msg.style.padding = '6px 10px';
+    msg.style.borderRadius = '12px';
+    msg.style.maxWidth = '80%';
+    msg.style.clear = 'both';
+    if (fromUser) {
+      msg.style.backgroundColor = '#DCF8C6';
+      msg.style.float = 'right';
+    } else {
+      msg.style.backgroundColor = '#F1F0F0';
+      msg.style.float = 'left';
+    }
+    chatMessages.appendChild(msg);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+
+  // Exemple FAQ (à adapter ou remplacer)
+  const faq = [
+    { question: "bonjour", answer: "Bonjour ! Comment puis-je vous aider ?" },
+    { question: "heure", answer: "Je ne sais pas l'heure exacte, désolé." },
+    { question: "aviation", answer: "Nous avons beaucoup d'articles sur l'aviation." }
+  ];
+
+  // Chercher la réponse dans faq
+  function getAnswer(userQuestion) {
+    const q = userQuestion.toLowerCase().replace(/[?.!]/g, '').trim();
+    for (const item of faq) {
+      if (q.includes(item.question)) {
+        return item.answer;
+      }
+    }
+    return "Désolé, je n'ai pas compris la question.";
+  }
+
+  // Envoyer message quand appui sur Entrée
+  chatInput.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && chatInput.value.trim() !== '') {
+      const userQ = chatInput.value.trim();
+      addMessage(userQ, true);
+      chatInput.value = '';
+      const answer = getAnswer(userQ);
+      setTimeout(() => addMessage(answer), 500);
+    }
+  });
+
   </script>
+<button id="chat-btn" aria-label="Ouvrir le chat">
+<button id="chat-btn">
+  <img src="logo.png" alt="Chat" />
+</button>
+
+<div id="chat-modal">
+  <button id="close-chat">X</button>
+  <div class="chat-content">
+    <h2>Chatbot</h2>
+    <p>Posez votre question :</p>
+  <div id="chat-content"></div>
+  <input type="text" id="chat-input" placeholder="Pose ta question..." />
+</div>
+
 
   <footer class="footer">
     <div class="footer-content" id="section1">

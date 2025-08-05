@@ -5,6 +5,8 @@
   <title>L'air du vol/ Accueil/ Découvrir nos articles</title>
   <link rel="stylesheet" href="Page 1.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js"></script>
+
   <link rel="icon" href="logo.png" type="image/png">
 </head>
 <body>
@@ -308,82 +310,26 @@
       });
     });
   });
-const chatBtn = document.getElementById('chat-btn');
-const chatModal = document.getElementById('chat-modal');
-const closeChat = document.getElementById('close-chat');
-
-chatBtn.addEventListener('click', () => {
-  chatModal.classList.toggle('visible');
-});
-
-closeChat.addEventListener('click', () => {
-  chatModal.classList.remove('visible');
-});
-
-  // Fonction pour afficher un message dans le chat
-  function addMessage(text, fromUser = false) {
-    const msg = document.createElement('div');
-    msg.textContent = text;
-    msg.style.margin = '5px 0';
-    msg.style.padding = '6px 10px';
-    msg.style.borderRadius = '12px';
-    msg.style.maxWidth = '80%';
-    msg.style.clear = 'both';
-    if (fromUser) {
-      msg.style.backgroundColor = '#DCF8C6';
-      msg.style.float = 'right';
-    } else {
-      msg.style.backgroundColor = '#F1F0F0';
-      msg.style.float = 'left';
-    }
-    chatMessages.appendChild(msg);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-  }
-
-  // Exemple FAQ (à adapter ou remplacer)
-  const faq = [
-    { question: "bonjour", answer: "Bonjour ! Comment puis-je vous aider ?" },
-    { question: "heure", answer: "Je ne sais pas l'heure exacte, désolé." },
-    { question: "aviation", answer: "Nous avons beaucoup d'articles sur l'aviation." }
-  ];
-
-  // Chercher la réponse dans faq
-  function getAnswer(userQuestion) {
-    const q = userQuestion.toLowerCase().replace(/[?.!]/g, '').trim();
-    for (const item of faq) {
-      if (q.includes(item.question)) {
-        return item.answer;
-      }
-    }
-    return "Désolé, je n'ai pas compris la question.";
-  }
-
-  // Envoyer message quand appui sur Entrée
-  chatInput.addEventListener('keydown', e => {
-    if (e.key === 'Enter' && chatInput.value.trim() !== '') {
-      const userQ = chatInput.value.trim();
-      addMessage(userQ, true);
-      chatInput.value = '';
-      const answer = getAnswer(userQ);
-      setTimeout(() => addMessage(answer), 500);
-    }
-  });
-
-  </script>
+ </script>
 <button id="chat-btn" aria-label="Ouvrir le chat">
-<button id="chat-btn">
-  <img src="logo.png" alt="Chat" />
+  <img src="logo faq.png" alt="logo-img" id="chat-logo"/>
 </button>
-
 <div id="chat-modal">
-  <button id="close-chat">X</button>
+  <button id="close-chat" aria-label="Fermer le chat">X</button>
   <div class="chat-content">
     <h2>Chatbot</h2>
     <p>Posez votre question :</p>
-  <div id="chat-content"></div>
-  <input type="text" id="chat-input" placeholder="Pose ta question..." />
+    <div id="chat-content"></div>
+<div id="chat-form">
+  <input type="text" id="chat-input" placeholder="Écrivez un message..." />
+  <button id="send-btn" title="Envoyer">
+    <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" width="20" fill="currentColor">
+      <path d="M2 21l21-9L2 3v7l15 2-15 2z"/>
+    </svg>
+  </button>
 </div>
-
+  </div>
+</div>
 
   <footer class="footer">
     <div class="footer-content" id="section1">
@@ -392,5 +338,73 @@ closeChat.addEventListener('click', () => {
       <p>&copy; 2025 - L'Air du vol. Tous droits réservés.</p>
     </div>
   </footer>
+<script>
+  const chatBtn = document.getElementById("chat-btn");
+  const chatModal = document.getElementById("chat-modal");
+  const closeChat = document.getElementById("close-chat");
+  const chatInput = document.getElementById("chat-input");
+  const chatMessages = document.getElementById("chat-content");
+  const sendBtn = document.getElementById("send-btn");
+
+  let fuse;
+
+  // Charger les questions depuis le fichier JSON
+  fetch("faq.json")
+    .then(response => response.json())
+    .then(data => {
+      // Créer l’index Fuse.js pour recherche floue
+      fuse = new Fuse(data, {
+        keys: ["question"],
+        includeScore: true,
+        threshold: 0.4, // plus bas = plus strict, plus haut = plus permissif
+        ignoreLocation: true,
+      });
+    })
+    .catch(error => {
+      console.error("Erreur de chargement de la FAQ :", error);
+    });
+
+  function addMessage(text, fromUser = false) {
+    const msg = document.createElement("div");
+    msg.textContent = text;
+    msg.className = fromUser ? "user" : "bot";
+    chatMessages.appendChild(msg);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+
+  function handleUserInput() {
+    const message = chatInput.value.trim();
+    if (message === "") return;
+
+    addMessage(message, true);
+
+    if (fuse) {
+      const results = fuse.search(message);
+      if (results.length > 0 && results[0].score < 0.5) {
+        addMessage(results[0].item.answer);
+      } else {
+        addMessage("Désolé, je n’ai pas compris votre question. Essayez une autre formulation.");
+      }
+    } else {
+      addMessage("La base de connaissances n’est pas encore prête.");
+    }
+
+    chatInput.value = "";
+  }
+
+  chatInput.addEventListener("keypress", function (e) {
+    if (e.key === "Enter") handleUserInput();
+  });
+
+  sendBtn.addEventListener("click", handleUserInput);
+
+  chatBtn.addEventListener("click", () => {
+    chatModal.classList.toggle("visible");
+  });
+
+  closeChat.addEventListener("click", () => {
+    chatModal.classList.remove("visible");
+  });
+</script>
 </body>
 </html>

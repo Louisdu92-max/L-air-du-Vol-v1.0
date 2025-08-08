@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="Page 1.css">
   <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
-  emailjs.init("gZYgEMZG-ZwjWH_qB"); // remplace par ton Public Key
+  emailjs.init("4dkh6va"); // remplace par ton Public Key
 </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="logo.png" type="image/png">
@@ -26,7 +26,7 @@
   <!-- Menu latéral vertical -->
   <nav class="sidebar">
     <ul class="menu">
-      <li><a href="Index.html">Accueil</a></li>
+      <li><a href="index.html">Accueil</a></li>
       <li class="has-submenu">
         <a href="#">Aviation civile</a>
         <ul class="sous-menu">
@@ -113,5 +113,76 @@
       <p>&copy; 2025 - L'Air du vol. Tous droits réservés.</p>
     </div>
   </footer>
+  <!-- Bouton flottant -->
+<button id="ai-chat-btn">❔</button>
+
+<!-- Fenêtre de chat -->
+<div id="ai-chat-modal">
+  <div class="ai-chat-header">
+    <h3>Assistant IA</h3>
+    <button id="close-ai-chat">&times;</button>
+  </div>
+  <div class="ai-chat-messages" id="ai-chat-messages"></div>
+  <div class="typing-indicator" id="typing-indicator">
+    <div class="typing-dots"><span></span><span></span><span></span></div>
+  </div>
+  <div class="ai-chat-input">
+    <textarea id="ai-input" placeholder="Écrivez votre message..."></textarea>
+    <button id="ai-send-btn">Envoyer</button>
+  </div>
+</div>
+  <script>    
+  const aiBtn = document.getElementById("ai-chat-btn");
+  const aiModal = document.getElementById("ai-chat-modal");
+  const closeAiBtn = document.getElementById("close-ai-chat");
+  const aiMessages = document.getElementById("ai-chat-messages");
+  const aiInput = document.getElementById("ai-input");
+  const sendBtn = document.getElementById("ai-send-btn");
+  const typingIndicator = document.getElementById("typing-indicator");
+
+  aiBtn.addEventListener("click", () => aiModal.classList.toggle("show"));
+  closeAiBtn.addEventListener("click", () => aiModal.classList.remove("show"));
+
+  function addMessage(text, fromUser = false) {
+    const msg = document.createElement("div");
+    msg.textContent = text;
+    msg.className = `ai-message ${fromUser ? "user" : "ai"}`;
+    aiMessages.appendChild(msg);
+    aiMessages.scrollTop = aiMessages.scrollHeight;
+  }
+
+  async function sendMessageToAI(userText) {
+    typingIndicator.classList.add("show");
+    try {
+      const res = await fetch("http://localhost:3000/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: userText })
+      });
+      const data = await res.json();
+      typingIndicator.classList.remove("show");
+      addMessage(data.reply);
+    } catch {
+      typingIndicator.classList.remove("show");
+      addMessage("⚠️ Erreur de connexion avec l'IA.");
+    }
+  }
+
+  sendBtn.addEventListener("click", () => {
+    const text = aiInput.value.trim();
+    if (text) {
+      addMessage(text, true);
+      aiInput.value = "";
+      sendMessageToAI(text);
+    }
+  });
+
+  aiInput.addEventListener("keypress", e => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      sendBtn.click();
+    }
+  });
+</script>
 </body>
 </html>

@@ -21,9 +21,9 @@
   </header>
 
   <!-- Menu latéral vertical -->
-<nav class="sidebar">
+  <nav class="sidebar">
     <ul class="menu">
-      <li><a href="Index.html">Accueil</a></li>
+      <li><a href="index.html">Accueil</a></li>
       <li class="has-submenu">
         <a href="#">Aviation civile</a>
         <ul class="sous-menu">
@@ -55,8 +55,8 @@
     </ul>
   </nav>
 
-  <!-- Contenu principal -->
-     <div id="auth-modal">
+  <!-- Modal d'authentification -->
+  <div id="auth-modal">
     <div class="auth-content">
       <h2>Authentification requise</h2>
       <input type="text" id="username" placeholder="Nom">
@@ -65,40 +65,249 @@
       <div class="error" id="error-msg"></div>
     </div>
   </div>
-  <main class="main-content">
-    <h1>Aviation civile</h1>
-<section class="file-upload-section">
-  <h2>Téléversez un document texte</h2>
-  <div id="dropzone" class="dropzone">
-    <input type="file" id="fileInput" accept=".docx" />
-    <p>Glissez-déposez un fichier ici ou cliquez pour sélectionner</p>
-  </div>
- <p class="upload-instructions" style="font-style: italic;">
-  Taille maximale : 5 Mo.<br><br>
-  Assurez-vous que le document est bien formaté selon les règles suivantes :
-</p>  
-<ul class="upload-instructions" style="font-style: italic;">
-  <li>Un résumé de l'article<br><br></li>
-  <li>Un titre<br><br></li>
-  <li>Des sous-parties<br><br></li>
-  <li>Quelques images illustrant votre article<br><br></li>
-</ul>
-<p class="upload-instructions" style="font-style: italic;">
-  ⚠ Votre article doit contenir uniquement des informations sur l'avation sinon il sera supprimer
-</p>
-  <!-- Zone de dépôt : juste l'input, pas d'arrière-plan -->
-  
-  <!-- Carte d'aperçu, cachée au départ -->
-  <article id="filePreview" class="card" style="display:none; margin-top: 20px;">
-    <div class="card-content"></div>
-  </article>
-</section>
-</section>
-  </main>
-  <button type="submit" class="btn">Publier l'article</button>
 
-  <!-- Script pour le thème et le menu -->
+  <!-- Contenu principal -->
+  <main class="main-content">
+    <h1>Créer un article - Aviation civile</h1>
+    
+    <div class="split-container">
+      <!-- Colonne formulaire à gauche -->
+      <div class="form-column">
+        <h2>Formulaire de création</h2>
+        
+        <div class="form-group">
+          <label for="article-title">Titre de l'article</label>
+          <input type="text" id="article-title" placeholder="Entrez le titre de votre article">
+        </div>
+        
+        <div class="form-group">
+          <label for="article-date">Date de publication</label>
+          <input type="date" id="article-date">
+        </div>
+        
+        <div class="form-group">
+          <label for="article-resume">Résumé de l'article</label>
+          <textarea id="article-resume" placeholder="Rédigez un résumé de votre article"></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label for="theme1">Thème 1 (première partie)</label>
+          <input type="text" id="theme1" placeholder="Nom du premier thème">
+        </div>
+        
+        <div class="form-group">
+          <label for="grand-a1">Grand A (1ère partie)</label>
+          <input type="text" id="grand-a1" placeholder="Titre de la section A">
+        </div>
+        
+        <div class="form-group">
+          <label for="text-a1">Texte lié au Grand A</label>
+          <textarea id="text-a1" placeholder="Contenu de la section A"></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label for="grand-b1">Grand B (1ère partie)</label>
+          <input type="text" id="grand-b1" placeholder="Titre de la section B">
+        </div>
+        
+        <div class="form-group">
+          <label for="text-b1">Texte lié au Grand B</label>
+          <textarea id="text-b1" placeholder="Contenu de la section B"></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label for="theme2">Thème 2 (deuxième partie)</label>
+          <input type="text" id="theme2" placeholder="Nom du deuxième thème">
+        </div>
+        
+        <div class="form-group">
+          <label for="grand-a2">Grand A (2ème partie)</label>
+          <input type="text" id="grand-a2" placeholder="Titre de la section A">
+        </div>
+        
+        <div class="form-group">
+          <label for="text-a2">Texte lié au Grand A (2ème partie)</label>
+          <textarea id="text-a2" placeholder="Contenu de la section A"></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label for="grand-b2">Grand B (2ème partie)</label>
+          <input type="text" id="grand-b2" placeholder="Titre de la section B">
+        </div>
+        
+        <div class="form-group">
+          <label for="text-b2">Texte lié au Grand B (2ème partie)</label>
+          <textarea id="text-b2" placeholder="Contenu de la section B"></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label for="theme3">Thème 3 (troisième partie)</label>
+          <input type="text" id="theme3" placeholder="Nom du troisième thème">
+        </div>
+        
+        <div class="form-group">
+          <label for="grand-a3">Grand A (3ème partie)</label>
+          <input type="text" id="grand-a3" placeholder="Titre de la section A">
+        </div>
+        
+        <div class="form-group">
+          <label for="text-a3">Texte lié au Grand A (3ème partie)</label>
+          <textarea id="text-a3" placeholder="Contenu de la section A"></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label for="grand-b3">Grand B (3ème partie)</label>
+          <input type="text" id="grand-b3" placeholder="Titre de la section B">
+        </div>
+        
+        <div class="form-group">
+          <label for="text-b3">Texte lié au Grand B (3ème partie)</label>
+          <textarea id="text-b3" placeholder="Contenu de la section B"></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label for="conclusion-title">Titre de la conclusion</label>
+          <input type="text" id="conclusion-title" placeholder="Titre de votre conclusion">
+        </div>
+        
+        <div class="form-group">
+          <label for="conclusion-text">Texte de la conclusion</label>
+          <textarea id="conclusion-text" placeholder="Rédigez votre conclusion"></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label>Images de l'article</label>
+          <div class="image-upload" onclick="document.getElementById('article-images').click()">
+            <input type="file" id="article-images" multiple accept="image/*">
+            <p>📷 Cliquez ici pour ajouter des images</p>
+            <p style="font-size: 0.9rem; color: #666;">Formats acceptés: JPG, PNG, GIF (sélection multiple possible)</p>
+          </div>
+          <div class="image-preview" id="image-preview"></div>
+          <button type="button" class="btn" style="margin-top: 10px; background: #28a745;" onclick="document.getElementById('additional-images').click()">+ Ajouter d'autres images</button>
+          <input type="file" id="additional-images" multiple accept="image/*" style="display: none;">
+        </div>
+        
+        <button type="button" class="btn" onclick="publishArticle()">Publier l'article</button>
+      </div>
+      
+      <!-- Colonne aperçu à droite -->
+      <div class="preview-column">
+        <h2>Aperçu de l'article</h2>
+        
+        <div id="preview-content">
+          <div class="preview-title" id="preview-title">Titre de votre article</div>
+          <div class="preview-date" id="preview-date">Date de publication</div>
+          
+          <div class="preview-resume" id="preview-resume"></div>
+          
+          <h3 class="preview-theme" id="preview-theme1" style="display: none;"></h3>
+          <div class="preview-section-title" id="preview-grand-a1" style="display: none;"></div>
+          <p class="preview-text" id="preview-text-a1"></p>
+          <div class="preview-section-title" id="preview-grand-b1" style="display: none;"></div>
+          <p class="preview-text" id="preview-text-b1"></p>
+          
+          <h3 class="preview-theme" id="preview-theme2" style="display: none;"></h3>
+          <div class="preview-section-title" id="preview-grand-a2" style="display: none;"></div>
+          <p class="preview-text" id="preview-text-a2"></p>
+          <div class="preview-section-title" id="preview-grand-b2" style="display: none;"></div>
+          <p class="preview-text" id="preview-text-b2"></p>
+          
+          <h3 class="preview-theme" id="preview-theme3" style="display: none;"></h3>
+          <div class="preview-section-title" id="preview-grand-a3" style="display: none;"></div>
+          <p class="preview-text" id="preview-text-a3"></p>
+          <div class="preview-section-title" id="preview-grand-b3" style="display: none;"></div>
+          <p class="preview-text" id="preview-text-b3"></p>
+          
+          <h3 class="preview-conclusion-title" id="preview-conclusion-title" style="display: none;"></h3>
+          <p class="preview-conclusion-text" id="preview-conclusion-text"></p>
+          
+          <div class="preview-images" id="preview-images"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content" id="section1">
+      <h3>Conditions Générales d'Utilisation</h3>
+      <p>En accédant au site <strong>L'Air du vol</strong>, vous acceptez nos conditions générales d'utilisation. Toute reproduction ou diffusion du contenu est interdite sans autorisation.</p>
+      <p>&copy; 2025 - L'Air du vol. Tous droits réservés.</p>
+    </div>
+  </footer>
+  <!-- Bouton flottant -->
+<button id="ai-chat-btn">❔</button>
+
+<!-- Fenêtre de chat -->
+<div id="ai-chat-modal">
+  <div class="ai-chat-header">
+    <h3>Assistant IA</h3>
+    <button id="close-ai-chat">&times;</button>
+  </div>
+  <div class="ai-chat-messages" id="ai-chat-messages"></div>
+  <div class="typing-indicator" id="typing-indicator">
+    <div class="typing-dots"><span></span><span></span><span></span></div>
+  </div>
+  <div class="ai-chat-input">
+    <textarea id="ai-input" placeholder="Écrivez votre message..."></textarea>
+    <button id="ai-send-btn">Envoyer</button>
+  </div>
+</div>
+  <script>    
+  const aiBtn = document.getElementById("ai-chat-btn");
+  const aiModal = document.getElementById("ai-chat-modal");
+  const closeAiBtn = document.getElementById("close-ai-chat");
+  const aiMessages = document.getElementById("ai-chat-messages");
+  const aiInput = document.getElementById("ai-input");
+  const sendBtn = document.getElementById("ai-send-btn");
+  const typingIndicator = document.getElementById("typing-indicator");
+
+  aiBtn.addEventListener("click", () => aiModal.classList.toggle("show"));
+  closeAiBtn.addEventListener("click", () => aiModal.classList.remove("show"));
+
+  function addMessage(text, fromUser = false) {
+    const msg = document.createElement("div");
+    msg.textContent = text;
+    msg.className = `ai-message ${fromUser ? "user" : "ai"}`;
+    aiMessages.appendChild(msg);
+    aiMessages.scrollTop = aiMessages.scrollHeight;
+  }
+
+  async function sendMessageToAI(userText) {
+    typingIndicator.classList.add("show");
+    try {
+      const res = await fetch("http://localhost:3000/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: userText })
+      });
+      const data = await res.json();
+      typingIndicator.classList.remove("show");
+      addMessage(data.reply);
+    } catch {
+      typingIndicator.classList.remove("show");
+      addMessage("⚠️ Erreur de connexion avec l'IA.");
+    }
+  }
+
+  sendBtn.addEventListener("click", () => {
+    const text = aiInput.value.trim();
+    if (text) {
+      addMessage(text, true);
+      aiInput.value = "";
+      sendMessageToAI(text);
+    }
+  });
+
+  aiInput.addEventListener("keypress", e => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      sendBtn.click();
+    }
+  });
+</script>
+
   <script>
+    // Script existant pour le thème et le menu
     const toggleButton = document.getElementById('toggle-theme');
     const sidebarToggleBtn = document.getElementById('toggle-sidebar');
     const sidebar = document.querySelector('.sidebar');
@@ -120,50 +329,8 @@
       sidebar.classList.toggle('collapsed');
       body.classList.toggle('menu-collapsed');
     });
-document.getElementById('fileInput').addEventListener('change', function (event) {
-  const file = event.target.files[0];
-  const preview = document.getElementById('filePreview');
-  const contentDiv = preview.querySelector('.card-content');
 
-  if (!file || file.name.split('.').pop().toLowerCase() !== 'docx') {
-    preview.style.display = 'block';
-    contentDiv.textContent = "Veuillez téléverser un fichier .docx valide.";
-    return;
-  }
-
-  const reader = new FileReader();
-  reader.onload = function (e) {
-    const arrayBuffer = e.target.result;
-
-    mammoth.convertToHtml({ arrayBuffer: arrayBuffer })
-      .then(function (result) {
-        contentDiv.innerHTML = result.value;
-        preview.style.display = 'block';
-      })
-      .catch(function (err) {
-        contentDiv.textContent = "Erreur lors de l'extraction du contenu.";
-        preview.style.display = 'block';
-        console.error(err);
-      });
-  };
-  reader.readAsArrayBuffer(file);
-});
-
-      const reader = new FileReader();
-      reader.onload = function (e) {
-        const arrayBuffer = e.target.result;
-
-        mammoth.convertToHtml({ arrayBuffer: arrayBuffer })
-          .then(function (result) {
-            preview.innerHTML = result.value;
-          })
-          .catch(function (err) {
-            preview.textContent = "Erreur lors de l'extraction du contenu.";
-            console.error(err);
-          });
-      };
-      reader.readAsArrayBuffer(file);
-        function checkAuth() {
+    function checkAuth() {
       const username = document.getElementById('username').value;
       const code = document.getElementById('code').value;
       const errorMsg = document.getElementById('error-msg');
@@ -174,14 +341,278 @@ document.getElementById('fileInput').addEventListener('change', function (event)
         errorMsg.textContent = 'Nom ou code incorrect';
       }
     }
-  </script>
 
-  <footer class="footer">
-    <div class="footer-content"  id="section1">
-      <h3>Conditions Générales d’Utilisation</h3>
-      <p>En accédant au site <strong>L'Air du vol</strong>, vous acceptez nos conditions générales d'utilisation. Toute reproduction ou diffusion du contenu est interdite sans autorisation.</p>
-      <p>&copy; 2025 - L'Air du vol. Tous droits réservés.</p>
-    </div>
-  </footer>
+    // Nouveau script pour la mise à jour dynamique
+    function updatePreview() {
+      console.log('updatePreview called'); // Debug
+      
+      // Titre
+      const title = document.getElementById('article-title').value;
+      const previewTitle = document.getElementById('preview-title');
+      previewTitle.textContent = title || 'Titre de votre article';
+      console.log('Titre:', title); // Debug
+      
+      // Date
+      const date = document.getElementById('article-date').value;
+      const previewDate = document.getElementById('preview-date');
+      previewDate.textContent = date ? `Publié le ${new Date(date).toLocaleDateString('fr-FR')}` : 'Date de publication';
+      
+      // Résumé
+      const resume = document.getElementById('article-resume').value;
+      const previewResume = document.getElementById('preview-resume');
+      previewResume.textContent = resume || '';
+      
+      // Thème 1
+      const theme1 = document.getElementById('theme1').value;
+      const previewTheme1 = document.getElementById('preview-theme1');
+      if (theme1.trim()) {
+        previewTheme1.textContent = theme1;
+        previewTheme1.style.display = 'block';
+      } else {
+        previewTheme1.style.display = 'none';
+      }
+      
+      // Grand A1
+      const grandA1 = document.getElementById('grand-a1').value;
+      const previewGrandA1 = document.getElementById('preview-grand-a1');
+      if (grandA1.trim()) {
+        previewGrandA1.textContent = grandA1;
+        previewGrandA1.style.display = 'block';
+      } else {
+        previewGrandA1.style.display = 'none';
+      }
+      
+      // Texte A1
+      const textA1 = document.getElementById('text-a1').value;
+      const previewTextA1 = document.getElementById('preview-text-a1');
+      previewTextA1.textContent = textA1 || '';
+      
+      // Grand B1
+      const grandB1 = document.getElementById('grand-b1').value;
+      const previewGrandB1 = document.getElementById('preview-grand-b1');
+      if (grandB1.trim()) {
+        previewGrandB1.textContent = grandB1;
+        previewGrandB1.style.display = 'block';
+      } else {
+        previewGrandB1.style.display = 'none';
+      }
+      
+      // Texte B1
+      const textB1 = document.getElementById('text-b1').value;
+      const previewTextB1 = document.getElementById('preview-text-b1');
+      previewTextB1.textContent = textB1 || '';
+      
+      // Thème 2
+      const theme2 = document.getElementById('theme2').value;
+      const previewTheme2 = document.getElementById('preview-theme2');
+      if (theme2.trim()) {
+        previewTheme2.textContent = theme2;
+        previewTheme2.style.display = 'block';
+      } else {
+        previewTheme2.style.display = 'none';
+      }
+      
+      // Grand A2
+      const grandA2 = document.getElementById('grand-a2').value;
+      const previewGrandA2 = document.getElementById('preview-grand-a2');
+      if (grandA2.trim()) {
+        previewGrandA2.textContent = grandA2;
+        previewGrandA2.style.display = 'block';
+      } else {
+        previewGrandA2.style.display = 'none';
+      }
+      
+      // Texte A2
+      const textA2 = document.getElementById('text-a2').value;
+      const previewTextA2 = document.getElementById('preview-text-a2');
+      previewTextA2.textContent = textA2 || '';
+      
+      // Grand B2
+      const grandB2 = document.getElementById('grand-b2').value;
+      const previewGrandB2 = document.getElementById('preview-grand-b2');
+      if (grandB2.trim()) {
+        previewGrandB2.textContent = grandB2;
+        previewGrandB2.style.display = 'block';
+      } else {
+        previewGrandB2.style.display = 'none';
+      }
+      
+      // Texte B2
+      const textB2 = document.getElementById('text-b2').value;
+      const previewTextB2 = document.getElementById('preview-text-b2');
+      previewTextB2.textContent = textB2 || '';
+      
+      // Thème 3
+      const theme3 = document.getElementById('theme3').value;
+      const previewTheme3 = document.getElementById('preview-theme3');
+      if (theme3.trim()) {
+        previewTheme3.textContent = theme3;
+        previewTheme3.style.display = 'block';
+      } else {
+        previewTheme3.style.display = 'none';
+      }
+      
+      // Grand A3
+      const grandA3 = document.getElementById('grand-a3').value;
+      const previewGrandA3 = document.getElementById('preview-grand-a3');
+      if (grandA3.trim()) {
+        previewGrandA3.textContent = grandA3;
+        previewGrandA3.style.display = 'block';
+      } else {
+        previewGrandA3.style.display = 'none';
+      }
+      
+      // Texte A3
+      const textA3 = document.getElementById('text-a3').value;
+      const previewTextA3 = document.getElementById('preview-text-a3');
+      previewTextA3.textContent = textA3 || '';
+      
+      // Grand B3
+      const grandB3 = document.getElementById('grand-b3').value;
+      const previewGrandB3 = document.getElementById('preview-grand-b3');
+      if (grandB3.trim()) {
+        previewGrandB3.textContent = grandB3;
+        previewGrandB3.style.display = 'block';
+      } else {
+        previewGrandB3.style.display = 'none';
+      }
+      
+      // Texte B3
+      const textB3 = document.getElementById('text-b3').value;
+      const previewTextB3 = document.getElementById('preview-text-b3');
+      previewTextB3.textContent = textB3 || '';
+      
+      // Conclusion
+      const conclusionTitle = document.getElementById('conclusion-title').value;
+      const previewConclusionTitle = document.getElementById('preview-conclusion-title');
+      if (conclusionTitle.trim()) {
+        previewConclusionTitle.textContent = conclusionTitle;
+        previewConclusionTitle.style.display = 'block';
+      } else {
+        previewConclusionTitle.style.display = 'none';
+      }
+      
+      const conclusionText = document.getElementById('conclusion-text').value;
+      const previewConclusionText = document.getElementById('preview-conclusion-text');
+      previewConclusionText.textContent = conclusionText || '';
+    }
+
+    // Écouter tous les changements dans les champs du formulaire
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('DOM loaded'); // Debug
+      
+      const formElements = [
+        'article-title', 'article-date', 'article-resume', 'theme1', 'grand-a1', 'text-a1', 
+        'grand-b1', 'text-b1', 'theme2', 'grand-a2', 'text-a2', 'grand-b2', 'text-b2',
+        'theme3', 'grand-a3', 'text-a3', 'grand-b3', 'text-b3', 'conclusion-title', 'conclusion-text'
+      ];
+      
+      formElements.forEach(id => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.addEventListener('input', function() {
+            console.log('Input changed:', id); // Debug
+            updatePreview();
+          });
+          element.addEventListener('change', function() {
+            console.log('Change event:', id); // Debug
+            updatePreview();
+          });
+        } else {
+          console.log('Element not found:', id); // Debug
+        }
+      });
+      
+      // Définir la date d'aujourd'hui par défaut
+      const dateInput = document.getElementById('article-date');
+      if (dateInput) {
+        dateInput.valueAsDate = new Date();
+      }
+      
+      // Mise à jour initiale
+      updatePreview();
+    });
+
+    // Variable globale pour stocker toutes les images
+    let allImages = [];
+
+    // Gestion des images principales
+    document.getElementById('article-images').addEventListener('change', function(event) {
+      handleImageUpload(event.target.files, false);
+    });
+
+    // Gestion des images supplémentaires
+    document.getElementById('additional-images').addEventListener('change', function(event) {
+      handleImageUpload(event.target.files, true);
+    });
+
+    function handleImageUpload(files, isAdditional) {
+      const imagePreview = document.getElementById('image-preview');
+      const previewImages = document.getElementById('preview-images');
+      
+      // Si ce ne sont pas des images supplémentaires, on vide d'abord les aperçus
+      if (!isAdditional) {
+        allImages = [];
+        imagePreview.innerHTML = '';
+        previewImages.innerHTML = '';
+      }
+      
+      Array.from(files).forEach((file, index) => {
+        if (file.type.startsWith('image/')) {
+          const reader = new FileReader();
+          reader.onload = function(e) {
+            const imageData = {
+              src: e.target.result,
+              name: file.name,
+              id: Date.now() + index
+            };
+            
+            allImages.push(imageData);
+            
+            // Miniature dans le formulaire avec bouton supprimer
+            const imgContainer = document.createElement('div');
+            imgContainer.className = 'image-item';
+            imgContainer.innerHTML = `
+              <img src="${e.target.result}" alt="${file.name}">
+              <button class="image-remove" onclick="removeImage(${imageData.id})" title="Supprimer">×</button>
+            `;
+            imagePreview.appendChild(imgContainer);
+            
+            // Image dans l'aperçu
+            const previewImg = document.createElement('img');
+            previewImg.src = e.target.result;
+            previewImg.alt = file.name;
+            previewImg.dataset.imageId = imageData.id;
+            previewImages.appendChild(previewImg);
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+    }
+
+    // Fonction pour supprimer une image
+    function removeImage(imageId) {
+      // Supprimer de la liste
+      allImages = allImages.filter(img => img.id !== imageId);
+      
+      // Supprimer de l'aperçu formulaire
+      const imagePreview = document.getElementById('image-preview');
+      const imgToRemove = imagePreview.querySelector(`img[src="${allImages.find(img => img.id === imageId)?.src}"]`);
+      if (imgToRemove) {
+        imgToRemove.parentElement.remove();
+      }
+      
+      // Supprimer de l'aperçu principal
+      const previewImages = document.getElementById('preview-images');
+      const previewImgToRemove = previewImages.querySelector(`img[data-image-id="${imageId}"]`);
+      if (previewImgToRemove) {
+        previewImgToRemove.remove();
+      }
+    }
+
+    function publishArticle() {
+      alert('Article publié avec succès ! (Fonctionnalité à implémenter côté serveur)');
+    }
+  </script>
 </body>
 </html>

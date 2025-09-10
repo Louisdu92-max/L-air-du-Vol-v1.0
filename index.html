@@ -23,6 +23,9 @@
 
   <!-- Menu latéral vertical -->
   <nav class="sidebar">
+    <div class="search-box">
+  <input type="text" id="articleSearch" placeholder="Rechercher des articles...">
+</div>
     <ul class="menu">
       <li><a href="index.html">Accueil</a></li>
       <li class="has-submenu">
@@ -550,6 +553,26 @@ Sa carrière illustre la transition des années 1930, où les compromis techniqu
     });
   });
  </script>
+ <script>
+const searchInput = document.getElementById('articleSearch');
+const articles = document.querySelectorAll('#article-grid .card');
+
+searchInput.addEventListener('input', () => {
+  const query = searchInput.value.toLowerCase();
+
+  articles.forEach(card => {
+    const title = card.querySelector('h3').textContent.toLowerCase();
+    const description = card.querySelector('p').textContent.toLowerCase();
+
+    if (title.includes(query) || description.includes(query)) {
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+});
+</script>
+
   <footer class="footer">
     <div class="footer-content" id="section1">
       <h3>Conditions Générales d’Utilisation</h3>

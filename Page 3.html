@@ -23,6 +23,9 @@
 
   <!-- Menu latéral vertical -->
   <nav class="sidebar">
+    <div class="search-box">
+  <input type="text" id="articleSearch" placeholder="Rechercher des articles...">
+</div>
     <ul class="menu">
       <li><a href="index.html">Accueil</a></li>
       <li class="has-submenu">
@@ -54,6 +57,14 @@
         </ul>
       </li>
     </ul>
+    <!-- Bloc promotion jeu d'échecs -->
+<!-- Bloc promotion jeu d'échecs -->
+<div class="sidebar-promo">
+  <img src="Stan jeux.jpg" alt="Logo du jeu d'échecs" class="chess-logo">
+  <h3>Jeu d’échecs en ligne</h3>
+  <p>Découvre le jeu d’échecs le meilleur du web !😊</p>
+  <a href="https://lien-vers-le-jeu-echecs.com" target="_blank" class="btn-chess">Jouer maintenant</a>
+</div>
   </nav>
 
   <!-- Contenu principal -->
@@ -542,6 +553,26 @@ Sa carrière illustre la transition des années 1930, où les compromis techniqu
     });
   });
  </script>
+ <script>
+const searchInput = document.getElementById('articleSearch');
+const articles = document.querySelectorAll('#article-grid .card');
+
+searchInput.addEventListener('input', () => {
+  const query = searchInput.value.toLowerCase();
+
+  articles.forEach(card => {
+    const title = card.querySelector('h3').textContent.toLowerCase();
+    const description = card.querySelector('p').textContent.toLowerCase();
+
+    if (title.includes(query) || description.includes(query)) {
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+});
+</script>
+
   <footer class="footer">
     <div class="footer-content" id="section1">
       <h3>Conditions Générales d’Utilisation</h3>
@@ -663,6 +694,78 @@ Sa carrière illustre la transition des années 1930, où les compromis techniqu
   // Initialisation
   showAd(currentAd);
 </script>
+<!-- Fenêtre Newsletter -->
+<div id="newsletter-modal">
+</div>
+<script>
+  // Afficher la modale newsletter au chargement
+  window.addEventListener('load', () => {
+    document.getElementById('newsletter-modal').classList.add('show');
+  });
 
+  // Bouton fermer
+  document.getElementById('close-newsletter').addEventListener('click', () => {
+    document.getElementById('newsletter-modal').classList.remove('show');
+  });
+
+  // Gestion du formulaire (à adapter avec ton back-end ou service d’envoi)
+  document.getElementById('newsletter-form').addEventListener('submit', e => {
+    e.preventDefault();
+    const email = document.getElementById('newsletter-email').value.trim();
+    if (email) {
+      alert('Merci pour votre abonnement : ' + email);
+      document.getElementById('newsletter-modal').classList.remove('show');
+      // ici tu peux faire un fetch() ou AJAX vers ton serveur pour enregistrer l’email
+    }
+  });
+  
+</script>
+<!-- BARRE PODCAST FIXE EN BAS -->
+<div class="podcast-bar" id="podcastBar">
+  <button id="togglePodcast" class="toggle-btn">▲</button> <!-- flèche -->
+  <select id="podcastSelect">
+    <option value="https://open.spotify.com/embed/episode/2Nj4fDyJWReayBVGja58JA">Épisode 150 – Boeing vs Airbus...</option>
+    <option value="https://open.spotify.com/embed/episode/6mxqrOFhI9uQ3uhss8LzkQ">Épisode 132 – Aviation d’affaires</option>
+    <option value="https://open.spotify.com/embed/episode/23r5h5vsrYdZNhsSspRZuQ">Épisode 100 – Spécial 100</option>
+    <option value="https://open.spotify.com/episode/0PPDp33GAr7h2j6HtuqBco">Épisode 149 – Expatriation et premiers jobs au Canada</option>
+    <option value="https://open.spotify.com/episode/3SkaTTIX2lsXS3CZnS7Qt2">Épisode 148 – Un hiver 2024 sur la logne</option>
+    <option value="https://open.spotify.com/episode/7cPbcoFYRZwtuV0AwQBR2n">Épisode 147 – Panne hydraulique,passagers malades et problématiques</option>
+    <option value="https://open.spotify.com/episode/0jbn7bRBVDmGvcq6HnCkaE">Épisode 146 – Instruction en formation professionelle</option>
+    <option value="https://open.spotify.com/episode/3S6YtftoBU9SSaOWbgvMXU">Épisode 145 – Nos destinations préférées</option>
+    <option value="https://open.spotify.com/episode/1TOCHfcXnP2A5al3G42i6d">Épisode 144 – Entre ciel et rail</option>
+    <option value="https://open.spotify.com/episode/3gjEBVtJQUQaEMr46X8t86">Épisode 143 – Tour de france en avion éléctrique</option>
+    <option value="https://open.spotify.com/episode/4NlqJ8XT8g2DE5WWxL8Msg">Épisode 142 – Que sont ils devenus ? sebastien et Philip</option>
+    <option value="https://open.spotify.com/episode/0PPDp33GAr7h2j6HtuqBco">Épisode 149 – Expatriation et premiers jobs au Canada</option>
+    <option value="https://open.spotify.com/episode/0PPDp33GAr7h2j6HtuqBco">Épisode 149 – Expatriation et premiers jobs au Canada</option>
+    <option value="https://open.spotify.com/episode/0PPDp33GAr7h2j6HtuqBco">Épisode 149 – Expatriation et premiers jobs au Canada</option>
+    <option value="https://open.spotify.com/episode/0PPDp33GAr7h2j6HtuqBco">Épisode 149 – Expatriation et premiers jobs au Canada</option>
+    <option value="https://open.spotify.com/episode/0PPDp33GAr7h2j6HtuqBco">Épisode 149 – Expatriation et premiers jobs au Canada</option>
+    <option value="https://open.spotify.com/episode/0PPDp33GAr7h2j6HtuqBco">Épisode 149 – Expatriation et premiers jobs au Canada</option>
+    <option value="https://open.spotify.com/episode/0PPDp33GAr7h2j6HtuqBco">Épisode 149 – Expatriation et premiers jobs au Canada</option>
+    <option value="https://open.spotify.com/episode/0PPDp33GAr7h2j6HtuqBco">Épisode 149 – Expatriation et premiers jobs au Canada</option>
+  </select>
+  <div class="player-container" id="playerContainer">
+    <iframe id="podcastPlayer"
+      src="https://open.spotify.com/embed/episode/2Nj4fDyJWReayBVGja58JA"
+      frameborder="0"
+      allowtransparency="true"
+      allow="encrypted-media; autoplay">
+    </iframe>
+  </div>
+</div>
+<script>const bar = document.getElementById('podcastBar');
+const toggleBtn = document.getElementById('togglePodcast');
+const select = document.getElementById('podcastSelect');
+const player = document.getElementById('podcastPlayer');
+
+toggleBtn.addEventListener('click', () => {
+  bar.classList.toggle('closed');
+});
+
+// Changer l'épisode
+select.addEventListener('change', () => {
+  player.src = select.value;
+});
+</script>
   </body>
 </html>

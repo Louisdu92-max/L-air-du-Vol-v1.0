@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>L'air du vol/ Opérations militaires/ Créer un article</title>
+  <title>L'air du vol/ Aviation civile/ Créer un article</title>
   <link rel="stylesheet" href="Page 2.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://unpkg.com/mammoth/mammoth.browser.min.js"></script>
@@ -68,7 +68,7 @@
 
   <!-- Contenu principal -->
   <main class="main-content">
-    <h1>Créer un article - Opérations militaires</h1>
+    <h1>Créer un article - Opération militaires</h1>
     
     <div class="split-container">
       <!-- Colonne formulaire à gauche -->
@@ -225,7 +225,72 @@
         </div>
       </div>
     </div>
-  </main>
+    <div class="form-group">
+  <label for="unsplash-search">Rechercher une image sur Unsplash</label>
+  <input type="text" id="unsplash-search" placeholder="Tapez un mot-clé et appuyez sur Entrée">
+  <div id="unsplash-results" class="image-preview" style="display:flex; flex-wrap:wrap; margin-top:10px;"></div>
+</div>
+ </main>
+<script>
+const unsplashInput = document.getElementById('unsplash-search');
+const unsplashResults = document.getElementById('unsplash-results');
+
+// Ta clé API Unsplash
+const UNSPLASH_ACCESS_KEY = '6BMOMscVWSbZIEuf_CuEoNIvQepRY0i4jO83J9UMCR4';
+
+unsplashInput.addEventListener('keypress', async (e) => {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    const query = unsplashInput.value.trim();
+    if (!query) return;
+
+    unsplashResults.innerHTML = 'Recherche en cours...';
+
+    try {
+      const res = await fetch(`https://api.unsplash.com/search/photos?query=${encodeURIComponent(query)}&per_page=12&client_id=${UNSPLASH_ACCESS_KEY}`);
+      const data = await res.json();
+      unsplashResults.innerHTML = '';
+
+      data.results.forEach(img => {
+        const imgElem = document.createElement('img');
+        imgElem.src = img.urls.small;
+        imgElem.alt = img.alt_description || 'Image Unsplash';
+        imgElem.style.width = '100px';
+        imgElem.style.height = '100px';
+        imgElem.style.objectFit = 'cover';
+        imgElem.style.margin = '5px';
+        imgElem.style.cursor = 'pointer';
+
+        // Ajouter l'image à l'aperçu principal
+        imgElem.addEventListener('click', () => {
+          const preview = document.getElementById('preview-images');
+          const newImg = document.createElement('img');
+          newImg.src = img.urls.small;
+          newImg.alt = img.alt_description || 'Image';
+          newImg.style.width = '150px';
+          newImg.style.height = '150px';
+          newImg.style.objectFit = 'cover';
+          newImg.style.margin = '5px';
+          preview.appendChild(newImg);
+
+          // Ajouter aussi dans les miniatures du formulaire
+          const imagePreview = document.getElementById('image-preview');
+          const imgContainer = document.createElement('div');
+          imgContainer.className = 'image-item';
+          imgContainer.innerHTML = `<img src="${img.urls.small}" alt="${img.alt_description || 'Image'}">`;
+          imagePreview.appendChild(imgContainer);
+        });
+
+        unsplashResults.appendChild(imgElem);
+      });
+
+    } catch (err) {
+      unsplashResults.innerHTML = 'Erreur lors de la recherche';
+      console.error(err);
+    }
+  }
+});
+</script>
 
   <footer class="footer">
     <div class="footer-content" id="section1">
@@ -234,7 +299,7 @@
       <p>&copy; 2025 - L'Air du vol. Tous droits réservés.</p>
     </div>
   </footer>
-<!-- Bouton flottant -->
+  <!-- Bouton flottant -->
 <button id="ai-chat-btn">❔</button>
 
 <!-- Fenêtre de chat -->
@@ -305,6 +370,7 @@
     }
   });
 </script>
+
   <script>
     // Script existant pour le thème et le menu
     const toggleButton = document.getElementById('toggle-theme');
